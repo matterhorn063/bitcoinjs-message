@@ -3,7 +3,7 @@ const bech32 = require('bech32')
 const bufferEquals = require('buffer-equals')
 const createHash = require('create-hash')
 const secp256k1 = require('secp256k1')
-const varuint = require('varuint-bitcoin')
+// const varuint = require('varuint-bitcoin')
 
 const SEGWIT_TYPES = {
   P2WPKH: 'p2wpkh',
@@ -62,6 +62,8 @@ function magicHash (message, messagePrefix) {
   if (!Buffer.isBuffer(message)) {
     message = Buffer.from(message, 'utf8')
   }
+  console.log('messagePrefix: ', messagePrefix)
+  console.log('message: ', message)
   // const messageVISize = varuint.encodingLength(message.length)
   // const buffer = Buffer.allocUnsafe(
   //   messagePrefix.length + messageVISize + message.length
